@@ -1,0 +1,19 @@
+type Employee {
+  id: ID!
+  name: String!
+  age: Int!
+  employeeClass: String!
+  subjects: [String!]!
+  attendance: Float!
+}
+
+type Query {
+  listEmployees(name: String, employeeClass: String, age: Int): [Employee]
+  getEmployeeById(id: ID!): Employee
+  listEmployeesPaginated(page: Int!, size: Int!): [Employee]
+}
+
+type Mutation {
+  addEmployee(name: String!, age: Int!, employeeClass: String!, subjects: [String!]!, attendance: Float!): Employee
+  updateEmployee(id: ID!, name: String, age: Int, employeeClass: String, subjects: [String!], attendance: Float): Employee
+}
